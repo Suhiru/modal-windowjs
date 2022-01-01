@@ -5,11 +5,19 @@ const overlay = document.querySelector('.overlay');
 const btnCloseModal = document.querySelector('.close-modal');
 const btnOpenModel = document.querySelectorAll('.show-modal');
 
-console.log(modal);
-console.log(overlay);
-console.log(btnCloseModal);
-console.log(btnOpenModel);
+const openModel = function () {
+  modal.classList.remove('hidden');
+  overlay.classList.remove('hidden');
+};
+
+const closeModel = function () {
+  modal.classList.add('hidden');
+  overlay.classList.add('hidden');
+};
 
 for (let i = 0; i < btnOpenModel.length; i++) {
-  console.log(btnOpenModel[i].textContent);
+  btnOpenModel[i].addEventListener('click', openModel);
 }
+
+btnCloseModal.addEventListener('click', closeModel);
+overlay.addEventListener('click', closeModel);
